@@ -1,0 +1,11 @@
+.vscode/
+.svn/
+net/
+*.uar
+uar-asm/
+include/
+plibc/
+*.o
+uar
+*.a
+*.so

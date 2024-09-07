@@ -1,0 +1,5 @@
+* Universal Archive Format (UAR) v1.0
+
+This is the UAR project. This project contains programs and tools to create, extract, and manipulate UAR files.
+UAR files special self-extracting archives that can be used to package and distribute files and directories,
+with the ability to store file metadata.

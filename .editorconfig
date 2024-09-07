@@ -1,0 +1,18 @@
+[*]
+indent_style = space
+indent_size = 4
+end_of_line = lf
+charset = utf-8
+
+[*.S,*.s,*.asm]
+insert_final_newline = true
+
+[*.sh]
+
+shell_variant      = posix
+binary_next_line   = true 
+switch_case_indent = true 
+space_redirects    = true 
+keep_padding       = true 
+function_next_line = true 
+never_split        = true 
