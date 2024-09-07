@@ -1,3 +1,24 @@
+/*
+ * uar.h -- UAR archive library definitions
+ *
+ * This file is part of the UAR project.
+ * Copyright (C) 2024  OSN Developers.
+ * Author:  Ar Rakin <rakinar2@onesoftnet.eu.org>
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
+
 #ifndef UAR_UAR_H
 #define UAR_UAR_H
 
@@ -105,6 +126,8 @@ time_t uar_file_get_mtime (const struct uar_file *file);
 uid_t uar_file_get_uid (const struct uar_file *file);
 gid_t uar_file_get_gid (const struct uar_file *file);
 const char *uar_get_error_file (const struct uar_archive *uar);
+const char *uar_get_version (void);
+enum uar_error uar_get_ecode (const struct uar_archive *restrict uar);
 
 #ifdef UAR_PRINT_VERBOSE_IMPL_INFO
 void uar_debug_print (const struct uar_archive *uar, bool print_file_contents);

@@ -1,5 +1,5 @@
 /*
- * xmalloc.h - definitions of memory allocation wrappers
+ * selfext_entry.h -- self-extracting archive runtime entry definitions
  *
  * This file is part of the UAR project.
  * Copyright (C) 2024  OSN Developers.
@@ -19,18 +19,13 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef UAR_XMALLOC_H
-#define UAR_XMALLOC_H
+#ifndef UAR_SELFEXT_H
+#define UAR_SELFEXT_H
 
-#include <stddef.h>
+#include <stdint.h>
+#include <stdio.h>
 
-/* Allocate memory and abort process on error. */
-void *xmalloc (size_t size);
+extern long long int __uar_data_size;
+extern uint8_t *uar_get_data_start (void);
 
-/* Allocate 'n' zeroed memory block of 'size' and abort process on error. */
-void *xcalloc (size_t nmemb, size_t size);
-
-/* Reallocate memory and abort process on error. */
-void *xrealloc (void *ptr, size_t size);
-
-#endif /* UAR_XMALLOC_H */
+#endif

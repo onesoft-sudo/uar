@@ -1,5 +1,5 @@
 /*
- * xmalloc.h - definitions of memory allocation wrappers
+ * io.h -- I/O helper function definitions
  *
  * This file is part of the UAR project.
  * Copyright (C) 2024  OSN Developers.
@@ -19,18 +19,15 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef UAR_XMALLOC_H
-#define UAR_XMALLOC_H
+#ifndef UAR_IO_H
+#define UAR_IO_H
 
-#include <stddef.h>
+extern char *progname;
 
-/* Allocate memory and abort process on error. */
-void *xmalloc (size_t size);
+/* Print information message. */
+void pinfo (char const *format, ...);
 
-/* Allocate 'n' zeroed memory block of 'size' and abort process on error. */
-void *xcalloc (size_t nmemb, size_t size);
+/* Print error message. */
+void perr (char const *format, ...);
 
-/* Reallocate memory and abort process on error. */
-void *xrealloc (void *ptr, size_t size);
-
-#endif /* UAR_XMALLOC_H */
+#endif /* UAR_IO_H */

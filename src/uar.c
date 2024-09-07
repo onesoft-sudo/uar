@@ -1,6 +1,28 @@
+/*
+ * uar.c -- UAR (Universal Archive) library implementation
+ *
+ * This file is part of the UAR project.
+ * Copyright (C) 2024  OSN Developers.
+ * Author:  Ar Rakin <rakinar2@onesoftnet.eu.org>
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
+
 #define _XOPEN_SOURCE 500
 
 #include "uar.h"
+#include "config.h"
 #include "malloc.h"
 
 #include <assert.h>
@@ -102,6 +124,12 @@ uar_set_error (struct uar_archive *uar, enum uar_error ecode,
     uar->last_errno = errno;
     free (uar->err_file);
     uar->err_file = err_file == NULL ? NULL : strdup (err_file);
+}
+
+enum uar_error
+uar_get_ecode (const struct uar_archive *restrict uar)
+{
+    return uar->ecode;
 }
 
 const char *
@@ -1452,4 +1480,10 @@ gid_t
 uar_file_get_gid (const struct uar_file *file)
 {
     return file->gid;
+}
+
+const char *
+uar_get_version (void)
+{
+    return PACKAGE_VERSION;
 }

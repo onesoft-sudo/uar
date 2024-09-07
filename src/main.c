@@ -2,7 +2,7 @@
  * main.c -- entry point and argument parsing for the UAR program
  *
  * This program is part of the UAR (Universal Archive) utility suite.
- * Copyright (C) 2024  OSN, Inc.
+ * Copyright (C) 2024  OSN Developers.
  * Author:  Ar Rakin <rakinar2@onesoftnet.eu.org>
  *
  * This program is free software: you can redistribute it and/or modify
@@ -51,6 +51,7 @@
 #    include <limits.h>
 #endif
 
+#include "io.h"
 #include "uar.h"
 #include "xmalloc.h"
 
@@ -83,9 +84,6 @@ static struct option const long_options[] = {
 };
 
 static char const short_options[] = "cxtvmf:C:hV";
-
-/* Program name. */
-static char *progname = NULL;
 
 /* Flags for the command line options. */
 enum uar_mode
@@ -165,28 +163,6 @@ pdebug (char const *file, int line, char const *format, ...)
     va_end (args);
 }
 #endif
-
-/* Print a message. */
-static void
-pinfo (char const *format, ...)
-{
-    va_list args;
-    va_start (args, format);
-    fprintf (stdout, "%s: ", progname);
-    vfprintf (stdout, format, args);
-    va_end (args);
-}
-
-/* Print an error message. */
-static void
-perr (char const *format, ...)
-{
-    va_list args;
-    va_start (args, format);
-    fprintf (stderr, "%s: ", progname);
-    vfprintf (stderr, format, args);
-    va_end (args);
-}
 
 /* Cleanup memory. */
 static void

@@ -19,7 +19,7 @@ uar: libuar.a main.o
 	@echo "  CC    $@"
 	$(CC) $(CFLAGS) -c -o $@ $<
 
-libuar.a: uar.o xmalloc.o
+libuar.a: uar.o xmalloc.o io.o
 	@echo "  AR    $@"
 	@ar rcs $@ $^
 
